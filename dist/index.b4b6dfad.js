@@ -2946,7 +2946,11 @@ var _client = require("react-dom/client");
 var _mainView = require("../components/main-view/main-view");
 var _indexScss = require("./index.scss");
 const MyFlixApplication = ()=>{
-    return;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
+        fileName: "src/index.jsx",
+        lineNumber: 8,
+        columnNumber: 10
+    }, undefined);
 };
 _c = MyFlixApplication;
 const container = document.querySelector("#root");
