@@ -27252,7 +27252,7 @@ parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const MovieCard = ({ movie, onMovieClick })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        onclick: ()=>{
+        onClick: ()=>{
             onMovieClick(movie);
         },
         children: movie.title
