@@ -10,9 +10,19 @@ export const MainView = () => {
     fetch('https://github.com/Darnobles/movie_api.git')
     .then((response) => response.json())
     .then((data) => {
-      
-    })
-  })
+      const moviesFromApi = data.map((movies) => {
+        return {
+          _id: movies.id,
+          title: movies.title,
+          description: movies.description,
+          genre: movies.genre,
+          director: movies.director,
+          imagePath: movies.imagePath
+        };
+      });
+      setMovies(moviesFromApi);
+    });
+  }, []);
 
   if (selectedMovie) {
     return (
