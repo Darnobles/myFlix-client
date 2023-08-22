@@ -7,7 +7,7 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-    fetch('https://github.com/Darnobles/movie_api.git')
+    fetch('https://git.heroku.com/comic-flick.git')
     .then((response) => response.json())
     .then((data) => {
       const moviesFromApi = data.map((movies) => {
