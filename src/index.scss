@@ -3,3 +3,8 @@ $color: steelblue;
 .my-flix {
     color: $color;
 }
+
+$primary: CadetBlue;
+$body-bg: #ebba7a;
+
+@import '~bootstrap/scss/bootstrap.scss';
