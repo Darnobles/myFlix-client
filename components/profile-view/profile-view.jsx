@@ -1,10 +1,10 @@
 import { useState, useEffect} from 'react';
 import { NavigationBar } from "../navigation-bar/navigation-bar";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import { MainView } from "../main-view/main-view";
-import { UserUpdate } from "../user-update/user-update";
+import { UpdateUser } from "../update-user/update-user";
 import { Container } from 'react-bootstrap';
+import { FavoriteMovies } from '../favorite-movies/favorite-movies';
+import { UserInfo } from '../user-info/user-info';
 
 export const ProfileView () => {
 
@@ -50,7 +50,9 @@ export const ProfileView () => {
     
         <Container>
             <NavigationBar/>
-            <UserUpdate/>
+            <UserInfo name={user.Username} email={user.Email}/>
+            <UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate}/>
+            <FavoriteMovies favoriteMovieList={ favoriteMovieList }/>
         </Container>
     )
 };

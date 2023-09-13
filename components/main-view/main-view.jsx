@@ -7,6 +7,7 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import { ProfileView } from "../profile-view/profile-view";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -84,7 +85,7 @@ return (
           }
         />
         <Route
-          path="/books/:bookId" element={
+          path="/movies/:movieId" element={
             <>
               {!user ? (
                 <Navigate to="/login" replace />
@@ -109,11 +110,24 @@ return (
                 <>
                   {movies.map((movie) => (
                     <Col className="mb-4" key={movie.id} md={3}>
-                      <MovieCard book={book} />
+                      <MovieCard movie={movie} />
                     </Col>
                   ))}
                 </>
               )}
+            </>
+          }
+        />
+        <Route
+          path="/profile" element ={
+            <>
+              {!user ? (
+                <Navigate to="/login" replace />
+                ) : 
+                  <col>
+                    <ProfileView></ProfileView>
+                  </col>
+              }
             </>
           }
         />
