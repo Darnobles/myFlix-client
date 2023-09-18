@@ -47176,7 +47176,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("SIGNUP_URL", {
+        fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -47512,7 +47512,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../navigation-bar/navigation-bar":"bpgC4","../main-view/main-view":"bJOVs","./update-user":"7L9sO","react-bootstrap":"3AD9A","./favorite-movies":"86k36","./user-info":"fj0p0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./deregister-user":"ePSjJ"}],"7L9sO":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../navigation-bar/navigation-bar":"bpgC4","../main-view/main-view":"bJOVs","./update-user":"7L9sO","react-bootstrap":"3AD9A","./favorite-movies":"86k36","./user-info":"fj0p0","./deregister-user":"ePSjJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7L9sO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$b402 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
