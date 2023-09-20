@@ -20,7 +20,7 @@ export const MainView = () => {
   useEffect(() => {
     if (!token) return;
 
-    fetch("..../movies", {
+    fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/movies", {
       headers: {Authorization: 'Bearer ${token}'},
     })
     .then ((response) => response.json())
@@ -30,7 +30,7 @@ export const MainView = () => {
   }, [token]);
 
   useEffect(() => {
-    fetch('https://comic-flick-833dd2e0dd28.herokuapp.com/')
+    fetch('https://comic-flick-833dd2e0dd28.herokuapp.com')
     .then((response) => response.json())
     .then((data) => {
       const moviesFromApi = data.map((movies) => {

@@ -27197,7 +27197,7 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         if (!token) return;
-        fetch("..../movies", {
+        fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/movies", {
             headers: {
                 Authorization: "Bearer ${token}"
             }
@@ -27208,7 +27208,7 @@ const MainView = ()=>{
         token
     ]);
     (0, _react.useEffect)(()=>{
-        fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/").then((response)=>response.json()).then((data)=>{
+        fetch("https://comic-flick-833dd2e0dd28.herokuapp.com").then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.map((movies)=>{
                 return {
                     _id: movies.id,
@@ -47176,7 +47176,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/users", {
+        fetch("[comic-flick-833dd2e0dd28.herokuapp.com/users](https://comic-flick-833dd2e0dd28.herokuapp.com/users)", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
