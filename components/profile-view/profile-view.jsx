@@ -8,12 +8,8 @@ import { UserInfo } from "./user-info";
 import { DeregisterUser } from "./deregister-user";
 
 export const ProfileView = () => {
-
-  
-
   return (
     <Container>
-      <NavigationBar />
       <UserInfo name={user.Username} email={user.Email} />
       <DeregisterUser />
       <UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
