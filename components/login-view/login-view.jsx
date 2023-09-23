@@ -12,10 +12,10 @@ export const LoginView = ({ onLoggedIn }) => {
         event.preventDefault();
 
         const data = {
-            access: username,
-            secret: password
+            Username: username,
+            Password: password
         };
-        fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/",{
+        fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/login",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
