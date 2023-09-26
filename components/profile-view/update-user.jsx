@@ -30,3 +30,5 @@ function UpdateUser({handleSubmit, handleUpdate}) {
     </form>
   )
 }
+
+export default UpdateUser
