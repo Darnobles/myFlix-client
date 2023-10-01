@@ -14,15 +14,15 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
             
             {!user && (
               <>
-                <Nav.Link href="/login">Sign In</Nav.Link>
-                <Nav.Link href="/signup">Sign Up</Nav.Link>
+                <Nav.Link as={Link} to="/login">Sign In</Nav.Link>
+                <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
               </>
             )}
             {user && (
               <>
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/profile">Profile</Nav.Link>
-                <Nav.Link href="#logout">Logout</Nav.Link>
+                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+                <Nav.Link as={Link} to="#logout">Logout</Nav.Link>
               </>
             )}
           </Nav>

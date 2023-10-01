@@ -16,21 +16,13 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-
+  console.log(user);
   useEffect(() => {
     if (!token) return;
 
     fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/movies", {
       headers: { Authorization: "Bearer ${token}" },
     })
-      .then((response) => response.json())
-      .then((movies) => {
-        setMovies(movies);
-      });
-  }, [token]);
-
-  useEffect(() => {
-    fetch("https://comic-flick-833dd2e0dd28.herokuapp.com")
       .then((response) => response.json())
       .then((data) => {
         const moviesFromApi = data.map((movies) => {
@@ -45,7 +37,25 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
       });
-  }, []);
+  }, [token]);
+
+  // useEffect(() => {
+  //   fetch("https://comic-flick-833dd2e0dd28.herokuapp.com")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       const moviesFromApi = data.map((movies) => {
+  //         return {
+  //           _id: movies.id,
+  //           title: movies.title,
+  //           description: movies.description,
+  //           genre: movies.genre,
+  //           director: movies.director,
+  //           imagePath: movies.imagePath,
+  //         };
+  //       });
+  //       setMovies(moviesFromApi);
+  //     });
+  // }, []);
 
   return (
     <BrowserRouter>
@@ -101,10 +111,10 @@ export const MainView = () => {
             element={
               <>
                 {!user ? (
-                  <Navigate to="/profile" replace />
+                  <Navigate to="/login" replace />
                 ) : (
                   <Col md={5}>
-                    <ProfileView></ProfileView>
+                    <ProfileView user={user}/>
                   </Col>
                 )}
               </>
