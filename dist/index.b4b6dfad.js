@@ -27309,7 +27309,8 @@ const MainView = ()=>{
                                 }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     md: 5,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
-                                        user: user
+                                        user: user,
+                                        movies: movies
                                     }, void 0, false, void 0, void 0)
                                 }, void 0, false, void 0, void 0)
                             }, void 0, false)
@@ -43201,7 +43202,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Sign In"
                                     }, void 0, false, {
                                         fileName: "components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 17,
+                                        lineNumber: 16,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -43210,7 +43211,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Sign Up"
                                     }, void 0, false, {
                                         fileName: "components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 18,
+                                        lineNumber: 19,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
@@ -43223,7 +43224,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Home"
                                     }, void 0, false, {
                                         fileName: "components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 23,
+                                        lineNumber: 26,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -43232,7 +43233,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Profile"
                                     }, void 0, false, {
                                         fileName: "components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 24,
+                                        lineNumber: 29,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -43241,7 +43242,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 25,
+                                        lineNumber: 32,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
@@ -43297,20 +43298,12 @@ var _reactBootstrap = require("react-bootstrap");
 var _favoriteMovies = require("./favorite-movies");
 var _userInfo = require("./user-info");
 var _deregisterUser = require("./deregister-user");
-var _s = $RefreshSig$();
-const ProfileView = ({ movies, onUpdatedUserInfo })=>{
-    _s();
-    const [user, setUser] = (0, _react.useState)({});
+const ProfileView = ({ user, movies, onUpdatedUserInfo })=>{
     const favoriteMovieList = movies.filter((m)=>user.FavoriteMoviesList.includes(m.id));
     const handleSubmit = (e)=>{};
     const handleUpdate = (e)=>{};
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navigationBar.NavigationBar), {}, void 0, false, {
-                fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 20,
-                columnNumber: 7
-            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userInfo.UserInfo), {
                 name: user.Username,
                 email: user.Email
@@ -43319,12 +43312,15 @@ const ProfileView = ({ movies, onUpdatedUserInfo })=>{
                 lineNumber: 21,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deregisterUser.DeregisterUser), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deregisterUser.DeregisterUser), {
+                username: user.Username
+            }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
                 lineNumber: 22,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _updateUser.UpdateUser), {
+                user: user,
                 handleSubmit: handleSubmit,
                 handleUpdate: handleUpdate
             }, void 0, false, {
@@ -43336,7 +43332,7 @@ const ProfileView = ({ movies, onUpdatedUserInfo })=>{
                 favoriteMovieList: favoriteMovieList
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 24,
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined)
         ]
@@ -43346,7 +43342,6 @@ const ProfileView = ({ movies, onUpdatedUserInfo })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(ProfileView, "cCRtNmj6gRKVA5wOmLEmdl385z4=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
@@ -43365,10 +43360,11 @@ $parcel$ReactRefreshHelpers$b402.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UpdateUser", ()=>UpdateUser);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function UpdateUser({ handleSubmit, handleUpdate }) {
+const UpdateUser = ({ user, handleSubmit, handleUpdate })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         className: "profile-form",
         onSubmit: ()=>handleSubmit(e),
@@ -43379,31 +43375,31 @@ function UpdateUser({ handleSubmit, handleUpdate }) {
                 fileName: "components/profile-view/update-user.jsx",
                 lineNumber: 6,
                 columnNumber: 7
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: "Username:"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
                 lineNumber: 7,
                 columnNumber: 7
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 type: "text",
                 name: "Username",
-                defalutValue: user.username,
+                defalutValue: user.Username,
                 onChange: (e1)=>handleUpdate(e1)
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
                 lineNumber: 8,
                 columnNumber: 7
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: "Password"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 14,
+                lineNumber: 15,
                 columnNumber: 7
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 type: "password",
                 name: "password",
@@ -43411,16 +43407,16 @@ function UpdateUser({ handleSubmit, handleUpdate }) {
                 onChange: (e1)=>handleUpdate(e1)
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 7
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: "Email address"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 21,
+                lineNumber: 23,
                 columnNumber: 7
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 type: "email",
                 name: "email",
@@ -43428,27 +43424,26 @@ function UpdateUser({ handleSubmit, handleUpdate }) {
                 onChange: (e1)=>handleUpdate(e1.target.value)
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 22,
+                lineNumber: 24,
                 columnNumber: 7
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 variant: "primary",
                 type: "submit",
                 children: "Update"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 27,
+                lineNumber: 30,
                 columnNumber: 7
-            }, this)
+            }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/update-user.jsx",
         lineNumber: 5,
         columnNumber: 5
-    }, this);
-}
+    }, undefined);
+};
 _c = UpdateUser;
-exports.default = UpdateUser;
 var _c;
 $RefreshReg$(_c, "UpdateUser");
 
@@ -43466,11 +43461,12 @@ $parcel$ReactRefreshHelpers$8e78.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FavoriteMovies", ()=>FavoriteMovies);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
-function FavoriteMovies() {
+const FavoriteMovies = ({ favoriteMovieList })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -43478,8 +43474,8 @@ function FavoriteMovies() {
             }, void 0, false, {
                 fileName: "components/profile-view/favorite-movies.jsx",
                 lineNumber: 7,
-                columnNumber: 13
-            }, this),
+                columnNumber: 7
+            }, undefined),
             favoriteMovieList.map((movies)=>{
                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: [
@@ -43488,8 +43484,8 @@ function FavoriteMovies() {
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
                             lineNumber: 11,
-                            columnNumber: 25
-                        }, this),
+                            columnNumber: 13
+                        }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: "movies/${movies._id",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -43497,13 +43493,13 @@ function FavoriteMovies() {
                             }, void 0, false, {
                                 fileName: "components/profile-view/favorite-movies.jsx",
                                 lineNumber: 13,
-                                columnNumber: 29
-                            }, this)
+                                columnNumber: 15
+                            }, undefined)
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
                             lineNumber: 12,
-                            columnNumber: 25
-                        }, this),
+                            columnNumber: 13
+                        }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                             variant: "secondary",
                             onClick: ()=>removeFav(movies._id),
@@ -43511,24 +43507,23 @@ function FavoriteMovies() {
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
                             lineNumber: 15,
-                            columnNumber: 25
-                        }, this)
+                            columnNumber: 13
+                        }, undefined)
                     ]
                 }, movies._id, true, {
                     fileName: "components/profile-view/favorite-movies.jsx",
                     lineNumber: 10,
-                    columnNumber: 21
-                }, this);
+                    columnNumber: 11
+                }, undefined);
             })
         ]
     }, void 0, true, {
         fileName: "components/profile-view/favorite-movies.jsx",
         lineNumber: 6,
-        columnNumber: 9
-    }, this);
-}
+        columnNumber: 5
+    }, undefined);
+};
 _c = FavoriteMovies;
-exports.default = FavoriteMovies;
 var _c;
 $RefreshReg$(_c, "FavoriteMovies");
 
@@ -43546,10 +43541,11 @@ $parcel$ReactRefreshHelpers$56cd.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UserInfo", ()=>UserInfo);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function UserInfo({ email, name }) {
+const UserInfo = ({ email, name })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -43560,8 +43556,8 @@ function UserInfo({ email, name }) {
             }, void 0, true, {
                 fileName: "components/profile-view/user-info.jsx",
                 lineNumber: 6,
-                columnNumber: 9
-            }, this),
+                columnNumber: 7
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
                     "Email: ",
@@ -43570,13 +43566,12 @@ function UserInfo({ email, name }) {
             }, void 0, true, {
                 fileName: "components/profile-view/user-info.jsx",
                 lineNumber: 7,
-                columnNumber: 9
-            }, this)
+                columnNumber: 7
+            }, undefined)
         ]
     }, void 0, true);
-}
+};
 _c = UserInfo;
-exports.default = UserInfo;
 var _c;
 $RefreshReg$(_c, "UserInfo");
 
@@ -43594,7 +43589,7 @@ $parcel$ReactRefreshHelpers$9f3f.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "deregisterUser", ()=>deregisterUser);
+parcelHelpers.export(exports, "DeregisterUser", ()=>DeregisterUser);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
@@ -43603,9 +43598,9 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _s = $RefreshSig$();
-const deregisterUser = ()=>{
+const DeregisterUser = ({ username })=>{
     _s();
-    const [deregister, setDeregister] = useState(false);
+    const [deregister, setDeregister] = (0, _react.useState)(false);
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
@@ -43627,21 +43622,21 @@ const deregisterUser = ()=>{
     handleDeregister = ()=>setDeregister(true);
     handleCloseDeregister = ()=>setDeregister(false);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
-        onSubmit: handleSubmit(onSubmit),
+        onSubmit: handleSubmit,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
                 controlId: "formUsername"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
                 lineNumber: 37,
-                columnNumber: 11
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
                 children: "Username:"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
                 lineNumber: 38,
-                columnNumber: 11
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                 type: "text",
@@ -43652,7 +43647,7 @@ const deregisterUser = ()=>{
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
                 lineNumber: 39,
-                columnNumber: 11
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 type: "button",
@@ -43661,23 +43656,26 @@ const deregisterUser = ()=>{
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
                 lineNumber: 46,
-                columnNumber: 11
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 type: "submit"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 50,
-                columnNumber: 12
+                lineNumber: 49,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/deregister-user.jsx",
         lineNumber: 36,
-        columnNumber: 9
+        columnNumber: 5
     }, undefined);
 };
-_s(deregisterUser, "e26sv4WjsxuIpN1j6oBVJcQaa48=");
+_s(DeregisterUser, "e26sv4WjsxuIpN1j6oBVJcQaa48=");
+_c = DeregisterUser;
+var _c;
+$RefreshReg$(_c, "DeregisterUser");
 
   $parcel$ReactRefreshHelpers$9f3f.postlude(module);
 } finally {
