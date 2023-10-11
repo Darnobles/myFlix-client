@@ -16,7 +16,6 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  console.log(user);
   useEffect(() => {
     if (!token) return;
 
@@ -25,6 +24,7 @@ export const MainView = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         const moviesFromApi = data.map((movies) => {
           return {
             _id: movies.id,
@@ -59,7 +59,7 @@ export const MainView = () => {
 
   return (
     <BrowserRouter>
-      <NavigationBar user={user} />
+      <NavigationBar user={user} onLoggedOut={() => setUser(null)} />
       <Row className="justify-content-md-center">
         <Routes>
           <Route
@@ -84,7 +84,12 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
                   </Col>
                 )}
               </>
