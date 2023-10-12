@@ -39,24 +39,6 @@ export const MainView = () => {
       });
   }, [token]);
 
-  // useEffect(() => {
-  //   fetch("https://comic-flick-833dd2e0dd28.herokuapp.com")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       const moviesFromApi = data.map((movies) => {
-  //         return {
-  //           _id: movies.id,
-  //           title: movies.title,
-  //           description: movies.description,
-  //           genre: movies.genre,
-  //           director: movies.director,
-  //           imagePath: movies.imagePath,
-  //         };
-  //       });
-  //       setMovies(moviesFromApi);
-  //     });
-  // }, []);
-
   return (
     <BrowserRouter>
       <NavigationBar user={user} onLoggedOut={() => setUser(null)} />
