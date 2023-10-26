@@ -20,14 +20,14 @@ export const MainView = () => {
     if (!token) return;
 
     fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/movies", {
-      headers: { Authorization: "Bearer ${token}" },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         const moviesFromApi = data.map((movies) => {
           return {
-            _id: movies.id,
+            id: movies._id,
             title: movies.title,
             description: movies.description,
             genre: movies.genre,
@@ -38,6 +38,22 @@ export const MainView = () => {
         setMovies(moviesFromApi);
       });
   }, [token]);
+
+  const onFavorite = (movieId) => {
+    if (!token) return;
+
+    fetch(
+      `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}/movies/${movieId}`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <BrowserRouter>
@@ -119,7 +135,7 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col className="mb-4" key={movie.id} md={3}>
-                        <MovieCard movie={movie} />
+                        <MovieCard movie={movie} onFavorite={onFavorite} />
                       </Col>
                     ))}
                   </>

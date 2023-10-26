@@ -8,8 +8,8 @@ import { UserInfo } from "./user-info";
 import { DeregisterUser } from "./deregister-user";
 
 export const ProfileView = ({ user, movies, onUpdatedUserInfo }) => {
-  const favoriteMovieList = movies.filter((m) =>
-    user.FavoriteMoviesList.includes(m.id)
+  const favoriteMovies = movies.filter((m) =>
+    user.FavoriteMovies.includes(m.id)
   );
 
   const handleSubmit = (e) => {};
@@ -25,7 +25,7 @@ export const ProfileView = ({ user, movies, onUpdatedUserInfo }) => {
         handleSubmit={handleSubmit}
         handleUpdate={handleUpdate}
       />
-      <FavoriteMovies favoriteMovieList={favoriteMovieList} />
+      <FavoriteMovies favoriteMovieList={favoriteMovies} />
     </Container>
   );
 };

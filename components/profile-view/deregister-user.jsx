@@ -46,7 +46,7 @@ export const DeregisterUser = ({ username }) => {
       <Button type="button" onClick={() => deregister("userName")}>
         Deregister
       </Button>
-      <input type="submit" />
+      {/* <input type="submit" /> */}
     </Form>
   );
 };

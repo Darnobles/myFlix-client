@@ -1,35 +1,38 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 export const UpdateUser = ({ user, handleSubmit, handleUpdate }) => {
+  console.log(user);
   return (
     <form className="profile-form" onSubmit={() => handleSubmit(e)}>
-      <h2>Change info here:</h2>
+      <h1>Update Info</h1>
       <label>Username:</label>
       <input
         type="text"
         name="Username"
-        defalutValue={user.Username}
+        value={user.Username}
         onChange={(e) => handleUpdate(e)}
       />
-
-      <label>Password</label>
+      <br></br>
+      <label>Password:</label>
       <input
         type="password"
-        name="password"
-        defaultValue={user.password}
+        name="Password"
+        value={user.Password}
         onChange={(e) => handleUpdate(e)}
       />
-
-      <label>Email address</label>
+      <br></br>
+      <label>Email address:</label>
       <input
         type="email"
-        name="email"
-        defaultValue={user.Email}
+        name="Email"
+        value={user.Email}
         onChange={(e) => handleUpdate(e.target.value)}
       />
-      <button variant="primary" type="submit">
+      <br></br>
+      <Button variant="primary" type="submit">
         Update
-      </button>
+      </Button>
     </form>
   );
 };
