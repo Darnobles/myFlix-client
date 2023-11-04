@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MovieCard } from "../movie-card/movie-card";
+import { useEffect } from "react";
 
 export const FavoriteMovies = ({ favoriteMovieList }) => {
   return (

@@ -43310,7 +43310,7 @@ var _favoriteMovies = require("./favorite-movies");
 var _userInfo = require("./user-info");
 var _deregisterUser = require("./deregister-user");
 const ProfileView = ({ user, movies, onUpdatedUserInfo })=>{
-    const favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m.id));
+    const favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m._id));
     const handleSubmit = (e)=>{};
     const handleUpdate = (e)=>{};
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
@@ -43495,6 +43495,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
+var _movieCard = require("../movie-card/movie-card");
 const FavoriteMovies = ({ favoriteMovieList })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -43502,7 +43503,7 @@ const FavoriteMovies = ({ favoriteMovieList })=>{
                 children: "Favorite Movies"
             }, void 0, false, {
                 fileName: "components/profile-view/favorite-movies.jsx",
-                lineNumber: 7,
+                lineNumber: 9,
                 columnNumber: 7
             }, undefined),
             favoriteMovieList.map((movies)=>{
@@ -43512,7 +43513,7 @@ const FavoriteMovies = ({ favoriteMovieList })=>{
                             src: movies.ImagePath
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
-                            lineNumber: 11,
+                            lineNumber: 13,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -43521,12 +43522,12 @@ const FavoriteMovies = ({ favoriteMovieList })=>{
                                 children: movies.Title
                             }, void 0, false, {
                                 fileName: "components/profile-view/favorite-movies.jsx",
-                                lineNumber: 13,
+                                lineNumber: 15,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
-                            lineNumber: 12,
+                            lineNumber: 14,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -43535,20 +43536,20 @@ const FavoriteMovies = ({ favoriteMovieList })=>{
                             children: "Remove from list"
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
-                            lineNumber: 15,
+                            lineNumber: 17,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, movies._id, true, {
                     fileName: "components/profile-view/favorite-movies.jsx",
-                    lineNumber: 10,
+                    lineNumber: 12,
                     columnNumber: 11
                 }, undefined);
             })
         ]
     }, void 0, true, {
         fileName: "components/profile-view/favorite-movies.jsx",
-        lineNumber: 6,
+        lineNumber: 8,
         columnNumber: 5
     }, undefined);
 };
@@ -43561,7 +43562,7 @@ $RefreshReg$(_c, "FavoriteMovies");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fj0p0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","../movie-card/movie-card":"8z54c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fj0p0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$56cd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43683,7 +43684,7 @@ const DeregisterUser = ({ username })=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 type: "button",
-                onClick: ()=>deregister("userName"),
+                onClick: ()=>deregister(user.userName),
                 children: "Deregister"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",

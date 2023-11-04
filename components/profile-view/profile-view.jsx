@@ -9,7 +9,7 @@ import { DeregisterUser } from "./deregister-user";
 
 export const ProfileView = ({ user, movies, onUpdatedUserInfo }) => {
   const favoriteMovies = movies.filter((m) =>
-    user.FavoriteMovies.includes(m.id)
+    user.FavoriteMovies.includes(m._id)
   );
 
   const handleSubmit = (e) => {};
