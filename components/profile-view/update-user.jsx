@@ -3,6 +3,23 @@ import Button from "react-bootstrap/Button";
 
 export const UpdateUser = ({ user, handleSubmit, handleUpdate }) => {
   console.log(user);
+
+  const onUpdate = (user) => {
+    if (!token) return;
+
+    fetch(
+      `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`,
+      {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <form className="profile-form" onSubmit={() => handleSubmit(e)}>
       <h1>Update Info</h1>
@@ -30,7 +47,7 @@ export const UpdateUser = ({ user, handleSubmit, handleUpdate }) => {
         onChange={(e) => handleUpdate(e.target.value)}
       />
       <br></br>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" onClick={() => onUpdate(user)}>
         Update
       </Button>
     </form>

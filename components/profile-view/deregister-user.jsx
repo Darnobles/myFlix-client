@@ -13,13 +13,18 @@ export const DeregisterUser = ({ username }) => {
       Username: username,
     };
 
-    fetch("https://comic-flick-833dd2e0dd28.herokuapp.com//users/:Username", {
-      method: "DELETE",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
+    const user = { username };
+
+    fetch(
+      `https://comic-flick-833dd2e0dd28.herokuapp.com//users/${user.Username}`,
+      {
+        method: "DELETE",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((response) => {
       if (response.ok) {
         alert("User deregistered");
         window.location.reload();
@@ -43,7 +48,7 @@ export const DeregisterUser = ({ username }) => {
         required
         minLength="3"
       />
-      <Button type="button" onClick={() => deregister(user.userName)}>
+      <Button type="button" onClick={() => handleSubmit(user.Username)}>
         Deregister
       </Button>
       {/* <input type="submit" /> */}
