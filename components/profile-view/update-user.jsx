@@ -1,9 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-export const UpdateUser = ({ user, handleSubmit, handleUpdate }) => {
-  console.log(user);
-
+export const UpdateUser = ({ user, handleSubmit, handleUpdate, token }) => {
   const onUpdate = (user) => {
     if (!token) return;
 

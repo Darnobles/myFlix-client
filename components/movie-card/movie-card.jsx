@@ -23,11 +23,12 @@ export const MovieCard = ({ movie, onFavorite }) => {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
     imagePath: PropTypes.string.isRequired,
   }).isRequired,
+  onFavorite: PropTypes.func.isRequired,
 };

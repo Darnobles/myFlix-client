@@ -6,18 +6,19 @@ import { Container } from "react-bootstrap";
 import { FavoriteMovies } from "./favorite-movies";
 import { UserInfo } from "./user-info";
 import { DeregisterUser } from "./deregister-user";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-export const ProfileView = ({ user, movies, onUpdatedUserInfo }) => {
-  const favoriteMovies = movies.filter((m) =>
-    user.FavoriteMovies.includes(m._id)
+export const ProfileView = ({ user, movies, onUpdatedUserInfo, token }) => {
+  const favoriteMovieList = movies.filter((m) =>
+    user.FavoriteMovies.includes(m.id)
   );
-
+  console.log(movies);
   const handleSubmit = (e) => {};
   const handleUpdate = (e) => {};
 
   return (
     <Container>
-      {/* <NavigationBar /> */}
       <UserInfo name={user.Username} email={user.Email} />
       <DeregisterUser username={user.Username} />
       <UpdateUser
@@ -25,7 +26,11 @@ export const ProfileView = ({ user, movies, onUpdatedUserInfo }) => {
         handleSubmit={handleSubmit}
         handleUpdate={handleUpdate}
       />
-      <FavoriteMovies favoriteMovieList={favoriteMovies} />
+      <Row>
+        <Col className="mb-4">
+          <FavoriteMovies favoriteMovieList={favoriteMovieList} token={token} />
+        </Col>
+      </Row>
     </Container>
   );
 };

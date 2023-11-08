@@ -13,8 +13,6 @@ export const DeregisterUser = ({ username }) => {
       Username: username,
     };
 
-    const user = { username };
-
     fetch(
       `https://comic-flick-833dd2e0dd28.herokuapp.com//users/${user.Username}`,
       {
@@ -48,7 +46,8 @@ export const DeregisterUser = ({ username }) => {
         required
         minLength="3"
       />
-      <Button type="button" onClick={() => handleSubmit(user.Username)}>
+
+      <Button type="button" onClick={handleSubmit}>
         Deregister
       </Button>
       {/* <input type="submit" /> */}

@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 import { useEffect } from "react";
+import { Col } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
-export const FavoriteMovies = ({ favoriteMovieList }) => {
+export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
   const removeFav = (movieId) => {
     if (!token) return;
 
@@ -23,19 +25,20 @@ export const FavoriteMovies = ({ favoriteMovieList }) => {
   return (
     <div>
       <h1>Favorite Movies</h1>
-      {favoriteMovieList.map((movies) => {
-        return (
-          <div key={movies._id}>
-            <img src={movies.ImagePath} />
-            <Link to={"movies/${movies._id"}>
-              <h4>{movies.Title}</h4>
-            </Link>
-            <button variant="secondary" onClick={() => removeFav(movies._id)}>
-              Remove from list
-            </button>
-          </div>
-        );
-      })}
+      <>
+        {favoriteMovieList.map((movie) => {
+          return (
+            <Col className="mb-4" key={movie.id} md={3}>
+              <MovieCard
+                movie={movie}
+                onFavorite={removeFav}
+                token={token}
+                user={user}
+              />
+            </Col>
+          );
+        })}
+      </>
     </div>
   );
 };

@@ -116,9 +116,9 @@ export const MainView = () => {
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : (
-                  <Col md={5}>
-                    <ProfileView user={user} movies={movies} />
-                  </Col>
+                  // <Col>
+                  <ProfileView user={user} movies={movies} token={token} />
+                  // </Col>
                 )}
               </>
             }
