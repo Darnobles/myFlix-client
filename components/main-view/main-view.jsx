@@ -16,26 +16,18 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-
   useEffect(() => {
     if (!token) return;
 
     fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/movies", {
-      headers: { Authorization: "Bearer ${token}" },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
-      .then((movies) => {
-        setMovies(movies);
-      });
-  }, [token]);
-
-  useEffect(() => {
-    fetch("https://comic-flick-833dd2e0dd28.herokuapp.com")
-      .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         const moviesFromApi = data.map((movies) => {
           return {
-            _id: movies.id,
+            id: movies._id,
             title: movies.title,
             description: movies.description,
             genre: movies.genre,
@@ -45,11 +37,27 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
       });
-  }, []);
+  }, [token]);
+
+  const onFavorite = (movieId) => {
+    if (!token) return;
+
+    fetch(
+      `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}/movies/${movieId}`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <BrowserRouter>
-      <NavigationBar user={user} />
+      <NavigationBar user={user} onLoggedOut={() => setUser(null)} />
       <Row className="justify-content-md-center">
         <Routes>
           <Route
@@ -74,7 +82,12 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
                   </Col>
                 )}
               </>
@@ -101,11 +114,11 @@ export const MainView = () => {
             element={
               <>
                 {!user ? (
-                  <Navigate to="/profile" replace />
+                  <Navigate to="/login" replace />
                 ) : (
-                  <Col md={5}>
-                    <ProfileView></ProfileView>
-                  </Col>
+                  // <Col>
+                  <ProfileView user={user} movies={movies} token={token} />
+                  // </Col>
                 )}
               </>
             }
@@ -122,7 +135,7 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col className="mb-4" key={movie.id} md={3}>
-                        <MovieCard movie={movie} />
+                        <MovieCard movie={movie} onFavorite={onFavorite} />
                       </Col>
                     ))}
                   </>

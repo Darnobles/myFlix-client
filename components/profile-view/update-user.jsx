@@ -1,32 +1,53 @@
-import React from 'react';
+import React from "react";
+import Button from "react-bootstrap/Button";
 
-function UpdateUser({handleSubmit, handleUpdate}) {
+export const UpdateUser = ({ user, handleSubmit, handleUpdate, token }) => {
+  const onUpdate = (user) => {
+    if (!token) return;
+
+    fetch(
+      `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`,
+      {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
-    <form className='profile-form' onSubmit={() => handleSubmit(e)}>
-      <h2>Change info here:</h2>
+    <form className="profile-form" onSubmit={() => handleSubmit(e)}>
+      <h1>Update Info</h1>
       <label>Username:</label>
       <input
-        type='text'
-        name='Username'
-        defalutValue={user.username}
-        onChange={e => handleUpdate(e)} />
-
-      <label>Password</label>
+        type="text"
+        name="Username"
+        value={user.Username}
+        onChange={(e) => handleUpdate(e)}
+      />
+      <br></br>
+      <label>Password:</label>
       <input
-        type='password'
-        name='password'
-        defaultValue={user.password}
-        onChange={e => handleUpdate(e)} />
-      
-      <label>Email address</label>
+        type="password"
+        name="Password"
+        value={user.Password}
+        onChange={(e) => handleUpdate(e)}
+      />
+      <br></br>
+      <label>Email address:</label>
       <input
-        type='email'
-        name='email'
-        defaultValue={user.Email}
-        onChange={e => handleUpdate(e.target.value)} />
-      <button variant='primary' type='submit'>
+        type="email"
+        name="Email"
+        value={user.Email}
+        onChange={(e) => handleUpdate(e.target.value)}
+      />
+      <br></br>
+      <Button variant="primary" onClick={() => onUpdate(user)}>
         Update
-      </button>
+      </Button>
     </form>
-  )
-}
+  );
+};
