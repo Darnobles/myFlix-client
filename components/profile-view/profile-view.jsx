@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
-import { MainView } from "../main-view/main-view";
 import { UpdateUser } from "./update-user";
 import { Container } from "react-bootstrap";
 import { FavoriteMovies } from "./favorite-movies";

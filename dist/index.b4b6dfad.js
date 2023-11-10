@@ -43303,7 +43303,6 @@ parcelHelpers.export(exports, "ProfileView", ()=>ProfileView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _navigationBar = require("../navigation-bar/navigation-bar");
-var _mainView = require("../main-view/main-view");
 var _updateUser = require("./update-user");
 var _reactBootstrap = require("react-bootstrap");
 var _favoriteMovies = require("./favorite-movies");
@@ -43325,14 +43324,14 @@ const ProfileView = ({ user, movies, onUpdatedUserInfo, token })=>{
                 email: user.Email
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 22,
+                lineNumber: 21,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deregisterUser.DeregisterUser), {
                 username: user.Username
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 23,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _updateUser.UpdateUser), {
@@ -43341,7 +43340,7 @@ const ProfileView = ({ user, movies, onUpdatedUserInfo, token })=>{
                 handleUpdate: handleUpdate
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 24,
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -43352,23 +43351,23 @@ const ProfileView = ({ user, movies, onUpdatedUserInfo, token })=>{
                         token: token
                     }, void 0, false, {
                         fileName: "components/profile-view/profile-view.jsx",
-                        lineNumber: 31,
+                        lineNumber: 30,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "components/profile-view/profile-view.jsx",
-                    lineNumber: 30,
+                    lineNumber: 29,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 29,
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/profile-view.jsx",
-        lineNumber: 21,
+        lineNumber: 20,
         columnNumber: 5
     }, undefined);
 };
@@ -43381,7 +43380,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../navigation-bar/navigation-bar":"bpgC4","../main-view/main-view":"bJOVs","./update-user":"7L9sO","react-bootstrap":"3AD9A","./favorite-movies":"86k36","./user-info":"fj0p0","./deregister-user":"ePSjJ","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7L9sO":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../navigation-bar/navigation-bar":"bpgC4","./update-user":"7L9sO","react-bootstrap":"3AD9A","./favorite-movies":"86k36","./user-info":"fj0p0","./deregister-user":"ePSjJ","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7L9sO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$b402 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43656,7 +43655,7 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _s = $RefreshSig$();
-const DeregisterUser = ({ username })=>{
+const DeregisterUser = ({ username, user })=>{
     _s();
     const [deregister, setDeregister] = (0, _react.useState)(false);
     const handleSubmit = (event)=>{
@@ -43710,6 +43709,7 @@ const DeregisterUser = ({ username })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 type: "button",
                 onClick: handleSubmit,
+                user: user,
                 children: "Deregister"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
