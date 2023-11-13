@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-export const DeregisterUser = ({ username }) => {
+export const DeregisterUser = ({ username, user }) => {
   const [deregister, setDeregister] = useState(false);
 
   const handleSubmit = (event) => {
@@ -47,7 +47,7 @@ export const DeregisterUser = ({ username }) => {
         minLength="3"
       />
 
-      <Button type="button" onClick={handleSubmit}>
+      <Button type="button" onClick={handleSubmit} user={user}>
         Deregister
       </Button>
       {/* <input type="submit" /> */}

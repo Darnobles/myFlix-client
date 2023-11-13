@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
-import { MainView } from "../main-view/main-view";
 import { UpdateUser } from "./update-user";
 import { Container } from "react-bootstrap";
 import { FavoriteMovies } from "./favorite-movies";
@@ -20,7 +19,7 @@ export const ProfileView = ({ user, movies, onUpdatedUserInfo, token }) => {
   return (
     <Container>
       <UserInfo name={user.Username} email={user.Email} />
-      <DeregisterUser username={user.Username} />
+      <DeregisterUser username={user.Username} user={user} />
       <UpdateUser
         user={user}
         handleSubmit={handleSubmit}
@@ -28,7 +27,11 @@ export const ProfileView = ({ user, movies, onUpdatedUserInfo, token }) => {
       />
       <Row>
         <Col className="mb-4">
-          <FavoriteMovies favoriteMovieList={favoriteMovieList} token={token} />
+          <FavoriteMovies
+            favoriteMovieList={favoriteMovieList}
+            token={token}
+            user={user}
+          />
         </Col>
       </Row>
     </Container>
