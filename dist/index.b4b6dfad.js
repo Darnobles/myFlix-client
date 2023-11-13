@@ -43328,7 +43328,8 @@ const ProfileView = ({ user, movies, onUpdatedUserInfo, token })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deregisterUser.DeregisterUser), {
-                username: user.Username
+                username: user.Username,
+                user: user
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
                 lineNumber: 22,
@@ -43348,7 +43349,8 @@ const ProfileView = ({ user, movies, onUpdatedUserInfo, token })=>{
                     className: "mb-4",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favoriteMovies.FavoriteMovies), {
                         favoriteMovieList: favoriteMovieList,
-                        token: token
+                        token: token,
+                        user: user
                     }, void 0, false, {
                         fileName: "components/profile-view/profile-view.jsx",
                         lineNumber: 30,
