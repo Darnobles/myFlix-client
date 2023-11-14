@@ -47,7 +47,12 @@ export const DeregisterUser = ({ username, user }) => {
         minLength="3"
       />
 
-      <Button type="button" onClick={handleSubmit} user={user}>
+      <Button
+        type="button"
+        onClick={handleSubmit}
+        user={user}
+        Username={username}
+      >
         Deregister
       </Button>
       {/* <input type="submit" /> */}
