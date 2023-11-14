@@ -14,7 +14,7 @@ export const DeregisterUser = ({ username, user }) => {
     };
 
     fetch(
-      `https://comic-flick-833dd2e0dd28.herokuapp.com//users/${user.Username}`,
+      `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`,
       {
         method: "DELETE",
         body: JSON.stringify(data),

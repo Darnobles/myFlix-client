@@ -43673,7 +43673,7 @@ const DeregisterUser = ({ username, user })=>{
         const data = {
             Username: username
         };
-        fetch(`https://comic-flick-833dd2e0dd28.herokuapp.com//users/${user.Username}`, {
+        fetch(`https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
             body: JSON.stringify(data),
             headers: {
