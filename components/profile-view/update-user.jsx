@@ -1,7 +1,14 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
-export const UpdateUser = ({ user, handleSubmit, handleUpdate, token }) => {
+export const UpdateUser = ({
+  user,
+  handleSubmit,
+  handleUpdate,
+  token,
+  data,
+}) => {
   const onUpdate = (user) => {
     if (!token) return;
 
@@ -19,35 +26,44 @@ export const UpdateUser = ({ user, handleSubmit, handleUpdate, token }) => {
   };
 
   return (
-    <form className="profile-form" onSubmit={() => handleSubmit(e)}>
+    <Form className="profile-form" onSubmit={() => handleSubmit(e)}>
       <h1>Update Info</h1>
-      <label>Username:</label>
-      <input
+      <Form.Label>Username:</Form.Label>
+      <Form.Control
         type="text"
         name="Username"
-        value={user.Username}
+        value={user.username}
         onChange={(e) => handleUpdate(e)}
+        required
+        minLength="3"
       />
       <br></br>
-      <label>Password:</label>
-      <input
+      <Form.Label>Password:</Form.Label>
+      <Form.Control
         type="password"
         name="Password"
-        value={user.Password}
+        value={user.password}
         onChange={(e) => handleUpdate(e)}
       />
       <br></br>
-      <label>Email address:</label>
-      <input
+      <Form.Label>Email address:</Form.Label>
+      <Form.Control
         type="email"
-        name="Email"
-        value={user.Email}
-        onChange={(e) => handleUpdate(e.target.value)}
+        name="email"
+        value={user.email}
+        onChange={(e) => handleUpdate(e)}
+        required
       />
       <br></br>
-      <Button variant="primary" onClick={() => onUpdate(user)}>
+      <Button
+        variant="primary"
+        onClick={onUpdate}
+        user={user}
+        data={data}
+        token={token}
+      >
         Update
       </Button>
-    </form>
+    </Form>
   );
 };

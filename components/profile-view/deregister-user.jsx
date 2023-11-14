@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-export const DeregisterUser = ({ username, user }) => {
+export const DeregisterUser = ({ username, user, token }) => {
   const [deregister, setDeregister] = useState(false);
 
   const handleSubmit = (event) => {
@@ -14,11 +14,12 @@ export const DeregisterUser = ({ username, user }) => {
     };
 
     fetch(
-      `https://comic-flick-833dd2e0dd28.herokuapp.com//users/${user.Username}`,
+      `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`,
       {
         method: "DELETE",
         body: JSON.stringify(data),
         headers: {
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       }
@@ -47,7 +48,13 @@ export const DeregisterUser = ({ username, user }) => {
         minLength="3"
       />
 
-      <Button type="button" onClick={handleSubmit} user={user}>
+      <Button
+        type="button"
+        onClick={handleSubmit}
+        user={user}
+        Username={username}
+        token={token}
+      >
         Deregister
       </Button>
       {/* <input type="submit" /> */}
