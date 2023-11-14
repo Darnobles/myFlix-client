@@ -43665,7 +43665,7 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _s = $RefreshSig$();
-const DeregisterUser = ({ username, user })=>{
+const DeregisterUser = ({ username, user, token })=>{
     _s();
     const [deregister, setDeregister] = (0, _react.useState)(false);
     const handleSubmit = (event)=>{
@@ -43677,6 +43677,7 @@ const DeregisterUser = ({ username, user })=>{
             method: "DELETE",
             body: JSON.stringify(data),
             headers: {
+                Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json"
             }
         }).then((response)=>{
@@ -43695,14 +43696,14 @@ const DeregisterUser = ({ username, user })=>{
                 controlId: "formUsername"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
                 children: "Username:"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 41,
+                lineNumber: 42,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -43713,7 +43714,7 @@ const DeregisterUser = ({ username, user })=>{
                 minLength: "3"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 42,
+                lineNumber: 43,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -43721,16 +43722,17 @@ const DeregisterUser = ({ username, user })=>{
                 onClick: handleSubmit,
                 user: user,
                 Username: username,
+                token: token,
                 children: "Deregister"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 50,
+                lineNumber: 51,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/deregister-user.jsx",
-        lineNumber: 39,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
