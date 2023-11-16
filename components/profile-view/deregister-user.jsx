@@ -5,19 +5,15 @@ import { useState } from "react";
 
 export const DeregisterUser = ({ username, user, token }) => {
   const [deregister, setDeregister] = useState(false);
+  console.log(token);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const data = {
-      Username: username,
-    };
 
     fetch(
       `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`,
       {
         method: "DELETE",
-        body: JSON.stringify(data),
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -48,15 +44,7 @@ export const DeregisterUser = ({ username, user, token }) => {
         minLength="3"
       />
 
-      <Button
-        type="button"
-        onClick={handleSubmit}
-        user={user}
-        Username={username}
-        token={token}
-      >
-        Deregister
-      </Button>
+      <Button onClick={handleSubmit}>Deregister</Button>
       {/* <input type="submit" /> */}
     </Form>
   );

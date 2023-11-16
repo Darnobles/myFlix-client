@@ -8,23 +8,16 @@ import { DeregisterUser } from "./deregister-user";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export const ProfileView = ({ user, movies, onUpdatedUserInfo, token }) => {
+export const ProfileView = ({ user, movies, token, data }) => {
   const favoriteMovieList = movies.filter((m) =>
     user.FavoriteMovies.includes(m.id)
   );
-  console.log(movies);
-  const handleSubmit = (e) => {};
-  const handleUpdate = (e) => {};
 
   return (
     <Container>
       <UserInfo name={user.Username} email={user.Email} />
-      <DeregisterUser username={user.Username} user={user} />
-      <UpdateUser
-        user={user}
-        handleSubmit={handleSubmit}
-        handleUpdate={handleUpdate}
-      />
+      <DeregisterUser username={user.Username} user={user} token={token} />
+      <UpdateUser user={user} token={token} data={data} />
       <Row>
         <Col className="mb-4">
           <FavoriteMovies
