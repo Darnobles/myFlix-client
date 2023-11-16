@@ -43312,11 +43312,8 @@ var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
-const ProfileView = ({ user, movies, onUpdatedUserInfo, token })=>{
+const ProfileView = ({ user, movies, token, data })=>{
     const favoriteMovieList = movies.filter((m)=>user.FavoriteMovies.includes(m.id));
-    console.log(movies);
-    const handleSubmit = (e)=>{};
-    const handleUpdate = (e)=>{};
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userInfo.UserInfo), {
@@ -43324,24 +43321,25 @@ const ProfileView = ({ user, movies, onUpdatedUserInfo, token })=>{
                 email: user.Email
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 21,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _deregisterUser.DeregisterUser), {
                 username: user.Username,
-                user: user
+                user: user,
+                token: token
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 22,
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _updateUser.UpdateUser), {
                 user: user,
-                handleSubmit: handleSubmit,
-                handleUpdate: handleUpdate
+                token: token,
+                data: data
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 23,
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -43353,23 +43351,23 @@ const ProfileView = ({ user, movies, onUpdatedUserInfo, token })=>{
                         user: user
                     }, void 0, false, {
                         fileName: "components/profile-view/profile-view.jsx",
-                        lineNumber: 30,
+                        lineNumber: 23,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "components/profile-view/profile-view.jsx",
-                    lineNumber: 29,
+                    lineNumber: 22,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "components/profile-view/profile-view.jsx",
-                lineNumber: 28,
+                lineNumber: 21,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/profile-view.jsx",
-        lineNumber: 20,
+        lineNumber: 17,
         columnNumber: 5
     }, undefined);
 };
@@ -43399,11 +43397,18 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
-const UpdateUser = ({ user, handleSubmit, handleUpdate, token, data })=>{
-    const onUpdate = (user)=>{
+var _s = $RefreshSig$();
+const UpdateUser = ({ user, token, data })=>{
+    _s();
+    const [username, setUsername] = (0, _react.useState)("");
+    const [password, setPassword] = (0, _react.useState)("");
+    const [email, setEmail] = (0, _react.useState)("");
+    const onUpdate = (event)=>{
+        event.preventDefault();
         if (!token) return;
         fetch(`https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
+            body: JSON.stringify(data),
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -43413,103 +43418,101 @@ const UpdateUser = ({ user, handleSubmit, handleUpdate, token, data })=>{
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
         className: "profile-form",
-        onSubmit: ()=>handleSubmit(e),
+        onSubmit: ()=>onUpdate(e),
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Update Info"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 30,
+                lineNumber: 31,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
                 children: "Username:"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 31,
+                lineNumber: 32,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                 type: "text",
                 name: "Username",
-                value: user.username,
-                onChange: (e1)=>handleUpdate(e1),
+                value: username,
+                onChange: (e1)=>setUsername(e1.target.value),
                 required: true,
                 minLength: "3"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 32,
+                lineNumber: 33,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
                 children: "Password:"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 41,
+                lineNumber: 42,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                 type: "password",
                 name: "Password",
-                value: user.password,
-                onChange: (e1)=>handleUpdate(e1)
+                value: password,
+                onChange: (e1)=>setPassword(e1.target.value)
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 42,
+                lineNumber: 43,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 48,
+                lineNumber: 49,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
                 children: "Email address:"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 49,
+                lineNumber: 50,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                 type: "email",
                 name: "email",
-                value: user.email,
-                onChange: (e1)=>handleUpdate(e1),
+                value: email,
+                onChange: (e1)=>setEmail(e1.target.value),
                 required: true
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 50,
+                lineNumber: 51,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 57,
+                lineNumber: 58,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 variant: "primary",
                 onClick: onUpdate,
-                user: user,
-                data: data,
-                token: token,
                 children: "Update"
             }, void 0, false, {
                 fileName: "components/profile-view/update-user.jsx",
-                lineNumber: 58,
+                lineNumber: 59,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/update-user.jsx",
-        lineNumber: 29,
+        lineNumber: 30,
         columnNumber: 5
     }, undefined);
 };
+_s(UpdateUser, "15GYNQRGZwIE4f5LB0Cz/BaTZf4=");
 _c = UpdateUser;
 var _c;
 $RefreshReg$(_c, "UpdateUser");
@@ -43668,14 +43671,11 @@ var _s = $RefreshSig$();
 const DeregisterUser = ({ username, user, token })=>{
     _s();
     const [deregister, setDeregister] = (0, _react.useState)(false);
+    console.log(token);
     const handleSubmit = (event)=>{
         event.preventDefault();
-        const data = {
-            Username: username
-        };
         fetch(`https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
-            body: JSON.stringify(data),
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json"
@@ -43696,14 +43696,14 @@ const DeregisterUser = ({ username, user, token })=>{
                 controlId: "formUsername"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 41,
+                lineNumber: 37,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
                 children: "Username:"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 42,
+                lineNumber: 38,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -43714,25 +43714,21 @@ const DeregisterUser = ({ username, user, token })=>{
                 minLength: "3"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 43,
+                lineNumber: 39,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                type: "button",
                 onClick: handleSubmit,
-                user: user,
-                Username: username,
-                token: token,
                 children: "Deregister"
             }, void 0, false, {
                 fileName: "components/profile-view/deregister-user.jsx",
-                lineNumber: 51,
+                lineNumber: 47,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/deregister-user.jsx",
-        lineNumber: 40,
+        lineNumber: 36,
         columnNumber: 5
     }, undefined);
 };

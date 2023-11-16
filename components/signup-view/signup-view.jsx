@@ -1,4 +1,4 @@
-import{ useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -15,15 +15,15 @@ export const SignupView = () => {
       Username: username,
       Password: password,
       Email: email,
-      Birthday: birthday
+      Birthday: birthday,
     };
 
-    fetch ("https://comic-flick-833dd2e0dd28.herokuapp.com/users", {
+    fetch("https://comic-flick-833dd2e0dd28.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     }).then((response) => {
       if (response.ok) {
         alert("Signup successful");
