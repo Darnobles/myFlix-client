@@ -18,6 +18,7 @@ export const UpdateUser = ({ user, token, data }) => {
         method: "PUT",
         body: JSON.stringify(data),
         headers: { Authorization: `Bearer ${token}` },
+        "Content-Type": "application/json",
       }
     )
       .then((response) => response.json())
