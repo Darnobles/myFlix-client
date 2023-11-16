@@ -3,32 +3,37 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 
-export const UpdateUser = ({ user, token, data }) => {
+export const UpdateUser = ({ user, token }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [birthday, setBirthday] = useState("");
 
   const onUpdate = (event) => {
     event.preventDefault();
-    if (!token) return;
 
     fetch(
       `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`,
       {
         method: "PUT",
-        body: JSON.stringify(data),
-        headers: { Authorization: `Bearer ${token}` },
-        "Content-Type": "application/json",
+        body: JSON.stringify(user),
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
       }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
+    ).then((response) => {
+      if (response.ok) {
+        alert("Update completed");
+        window.location.reload();
+      } else {
+        alert("Update failed");
+      }
+    });
   };
 
   return (
-    <Form className="profile-form" onSubmit={() => onUpdate(e)}>
+    <Form className="profile-form" onSubmit={onUpdate}>
       <h1>Update Info</h1>
       <Form.Label>Username:</Form.Label>
       <Form.Control
@@ -54,6 +59,15 @@ export const UpdateUser = ({ user, token, data }) => {
         name="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <br></br>
+      <Form.Label>Birthday:</Form.Label>
+      <Form.Control
+        type="birthday"
+        name="birthday"
+        value={birthday}
+        onChange={(e) => setBirthday(e.target.value)}
         required
       />
       <br></br>
