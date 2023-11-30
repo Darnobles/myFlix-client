@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ProfileView } from "../profile-view/profile-view";
+import { SearchBar } from "../profile-view/search-bar";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -16,6 +17,7 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  // const [movieSearch, setMovieSearch] = useState("");
   useEffect(() => {
     if (!token) return;
 
@@ -133,11 +135,18 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    {movies.map((movie) => (
-                      <Col className="mb-4" key={movie.id} md={3}>
-                        <MovieCard movie={movie} onFavorite={onFavorite} />
-                      </Col>
-                    ))}
+                    <SearchBar
+                      // movieSearch={movieSearch}
+                      // setMovieSearch={setMovieSearch}
+                      movies={movies}
+                    />
+                    {movies
+                      // .filter(movie((m) => m.movie === movie))
+                      .map((movie) => (
+                        <Col className="mb-4" key={movie.id} md={3}>
+                          <MovieCard movie={movie} onFavorite={onFavorite} />
+                        </Col>
+                      ))}
                   </>
                 )}
               </>
