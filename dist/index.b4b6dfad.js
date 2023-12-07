@@ -27238,7 +27238,7 @@ const MainView = ()=>{
                 onLoggedOut: ()=>setUser(null)
             }, void 0, false, {
                 fileName: "components/main-view/main-view.jsx",
-                lineNumber: 62,
+                lineNumber: 63,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -27257,7 +27257,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "components/main-view/main-view.jsx",
-                            lineNumber: 65,
+                            lineNumber: 66,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27277,7 +27277,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "components/main-view/main-view.jsx",
-                            lineNumber: 79,
+                            lineNumber: 80,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27297,7 +27297,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "components/main-view/main-view.jsx",
-                            lineNumber: 98,
+                            lineNumber: 99,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27315,7 +27315,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "components/main-view/main-view.jsx",
-                            lineNumber: 114,
+                            lineNumber: 115,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27347,24 +27347,24 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "components/main-view/main-view.jsx",
-                            lineNumber: 128,
+                            lineNumber: 129,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "components/main-view/main-view.jsx",
-                    lineNumber: 64,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "components/main-view/main-view.jsx",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/main-view/main-view.jsx",
-        lineNumber: 61,
+        lineNumber: 62,
         columnNumber: 5
     }, undefined);
 };
@@ -42902,8 +42902,11 @@ const LoginView = ({ onLoggedIn })=>{
             },
             body: JSON.stringify(data)
         }).then((response)=>response.json()).then((data)=>{
-            if (data.user) onLoggedIn(data.user, data.token);
-            else alert("No such user");
+            if (data.user) {
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("token", data.token);
+                onLoggedIn(data.user, data.token);
+            } else alert("No such user");
         }).catch((e)=>{
             alert("Something went wrong");
         });
@@ -42918,7 +42921,7 @@ const LoginView = ({ onLoggedIn })=>{
                         children: "Username:"
                     }, void 0, false, {
                         fileName: "components/login-view/login-view.jsx",
-                        lineNumber: 39,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -42929,13 +42932,13 @@ const LoginView = ({ onLoggedIn })=>{
                         minLength: "3"
                     }, void 0, false, {
                         fileName: "components/login-view/login-view.jsx",
-                        lineNumber: 40,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "components/login-view/login-view.jsx",
-                lineNumber: 38,
+                lineNumber: 40,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -42945,7 +42948,7 @@ const LoginView = ({ onLoggedIn })=>{
                         children: "Password:"
                     }, void 0, false, {
                         fileName: "components/login-view/login-view.jsx",
-                        lineNumber: 50,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -42955,13 +42958,13 @@ const LoginView = ({ onLoggedIn })=>{
                         required: true
                     }, void 0, false, {
                         fileName: "components/login-view/login-view.jsx",
-                        lineNumber: 51,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "components/login-view/login-view.jsx",
-                lineNumber: 49,
+                lineNumber: 51,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -42970,13 +42973,13 @@ const LoginView = ({ onLoggedIn })=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "components/login-view/login-view.jsx",
-                lineNumber: 58,
+                lineNumber: 60,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/login-view/login-view.jsx",
-        lineNumber: 37,
+        lineNumber: 39,
         columnNumber: 5
     }, undefined);
 };
@@ -43836,7 +43839,7 @@ var _movieView = require("../movie-view/movie-view");
 var _s = $RefreshSig$();
 const SearchBar = ({ movies })=>{
     _s();
-    const [movieSearch, setMovieSearch] = (0, _react.useState)("");
+    const [movieSearch, setMovieSearch] = (0, _react.useState)([]);
     const handleFilter = (event)=>{
         const searchMovie = event.target.value;
         const newFilter = movies.filter((value)=>{
@@ -43852,8 +43855,6 @@ const SearchBar = ({ movies })=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
-                        value: movieSearch,
-                        // onChange={(e) => setMovieSearch(e.target.value)}
                         onChange: handleFilter
                     }, void 0, false, {
                         fileName: "components/profile-view/search-bar.jsx",
@@ -43864,7 +43865,7 @@ const SearchBar = ({ movies })=>{
                         className: "searchIcon"
                     }, void 0, false, {
                         fileName: "components/profile-view/search-bar.jsx",
-                        lineNumber: 24,
+                        lineNumber: 19,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -43873,27 +43874,27 @@ const SearchBar = ({ movies })=>{
                 lineNumber: 17,
                 columnNumber: 7
             }, undefined),
-            movieSearch.length != 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            movieSearch.length !== 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "dataResult",
-                children: movies.map((value, key)=>{
+                children: movieSearch.map((value, key)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        href: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {}, void 0, false, void 0, void 0),
+                        href: `/movies/${value.id}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: value.title
                         }, void 0, false, {
                             fileName: "components/profile-view/search-bar.jsx",
-                            lineNumber: 31,
+                            lineNumber: 26,
                             columnNumber: 17
                         }, undefined)
                     }, key, false, {
                         fileName: "components/profile-view/search-bar.jsx",
-                        lineNumber: 30,
+                        lineNumber: 25,
                         columnNumber: 15
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "components/profile-view/search-bar.jsx",
-                lineNumber: 27,
+                lineNumber: 22,
                 columnNumber: 9
             }, undefined)
         ]
@@ -43903,7 +43904,7 @@ const SearchBar = ({ movies })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(SearchBar, "rEGJsdCIhHwrC552wzZ/mFJzYNo=");
+_s(SearchBar, "46yFGKwlJ20UobBO0fLVo4kiYVE=");
 _c = SearchBar;
 var _c;
 $RefreshReg$(_c, "SearchBar");
