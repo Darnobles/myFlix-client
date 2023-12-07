@@ -18,6 +18,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   // const [movieSearch, setMovieSearch] = useState("");
+
   useEffect(() => {
     if (!token) return;
 
