@@ -62,7 +62,7 @@ export const MainView = () => {
     setUser(null);
 
     localStorage.removeItem("user");
-    localStorage.setItem("token");
+    localStorage.removeItem("token");
   };
 
   return (

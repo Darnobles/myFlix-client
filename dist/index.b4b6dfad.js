@@ -27234,7 +27234,7 @@ const MainView = ()=>{
     const handleLogout = ()=>{
         setUser(null);
         localStorage.removeItem("user");
-        localStorage.setItem("token");
+        localStorage.removeItem("token");
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
         children: [
