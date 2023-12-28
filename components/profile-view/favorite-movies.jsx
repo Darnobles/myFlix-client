@@ -18,7 +18,8 @@ export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        alert("Movie removed successful");
+        window.location.reload();
       });
   };
 

@@ -4,19 +4,26 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 
 export const UpdateUser = ({ user, token }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
+  const [username, setUsername] = useState(user.Username);
+  const [password, setPassword] = useState(user.Password);
+  const [email, setEmail] = useState(user.Email);
+  const [birthday, setBirthday] = useState(user.Birthday);
 
   const onUpdate = (event) => {
     event.preventDefault();
+
+    const newUser = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday,
+    };
 
     fetch(
       `https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}`,
       {
         method: "PUT",
-        body: JSON.stringify(user),
+        body: JSON.stringify(newUser),
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -64,7 +71,7 @@ export const UpdateUser = ({ user, token }) => {
       <br></br>
       <Form.Label>Birthday:</Form.Label>
       <Form.Control
-        type="birthday"
+        type="date"
         name="birthday"
         value={birthday}
         onChange={(e) => setBirthday(e.target.value)}
