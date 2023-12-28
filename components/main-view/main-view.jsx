@@ -61,8 +61,8 @@ export const MainView = () => {
   const handleLogout = () => {
     setUser(null);
 
-    localStorage.removeItem("user", JSON.stringify(data.user));
-    localStorage.setItem("token", data.token);
+    localStorage.removeItem("user");
+    localStorage.setItem("token");
   };
 
   return (
