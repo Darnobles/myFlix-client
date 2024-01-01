@@ -58,9 +58,16 @@ export const MainView = () => {
       });
   };
 
+  const handleLogout = () => {
+    setUser(null);
+
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+  };
+
   return (
     <BrowserRouter>
-      <NavigationBar user={user} onLoggedOut={() => setUser(null)} />
+      <NavigationBar user={user} onLoggedOut={() => setUser(handleLogout)} />
       <Row className="justify-content-md-center">
         <Routes>
           <Route
