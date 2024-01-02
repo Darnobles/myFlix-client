@@ -15,7 +15,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
             {!user && (
               <>
                 <Nav.Link as={Link} to="/login">
-                  Sign In
+                  Sign In Hello
                 </Nav.Link>
                 <Nav.Link as={Link} to="/signup">
                   Sign Up
@@ -30,7 +30,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                 <Nav.Link as={Link} to="/profile">
                   Profile
                 </Nav.Link>
-                <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
+                <Nav.Link onClick={onLoggedOut}>Logout Hello</Nav.Link>
               </>
             )}
           </Nav>
