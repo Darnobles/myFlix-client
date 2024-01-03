@@ -43889,8 +43889,7 @@ const SearchBar = ({ movies })=>{
             }, undefined),
             movieSearch.length !== 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "dataResult",
-                children: movieSearch.map((value)=>{
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                children: movieSearch.map((value)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: `/movies/${value.id}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: value.title
@@ -43903,8 +43902,7 @@ const SearchBar = ({ movies })=>{
                         fileName: "components/profile-view/search-bar.jsx",
                         lineNumber: 25,
                         columnNumber: 13
-                    }, undefined);
-                })
+                    }, undefined))
             }, void 0, false, {
                 fileName: "components/profile-view/search-bar.jsx",
                 lineNumber: 23,

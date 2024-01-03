@@ -24,7 +24,7 @@ export const SearchBar = ({ movies }) => {
           {movieSearch.map((value) => (
             <Link key={value.id} to={`/movies/${value.id}`}>
               <p>{value.title}</p>
-            </Link>;
+            </Link>
           ))}
         </div>
       )}
