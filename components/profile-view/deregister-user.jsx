@@ -45,7 +45,6 @@ export const DeregisterUser = ({ username, user, token }) => {
       />
 
       <Button onClick={handleSubmit}>Deregister</Button>
-      {/* <input type="submit" /> */}
     </Form>
   );
 };

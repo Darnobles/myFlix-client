@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { MovieView } from "../movie-view/movie-view";
 
 export const SearchBar = ({ movies }) => {
@@ -20,12 +21,10 @@ export const SearchBar = ({ movies }) => {
       </div>
       {movieSearch.length !== 0 && (
         <div className="dataResult">
-          {movieSearch.map((value, key) => {
-            return (
-              <a key={key} href={`/movies/${value.id}`}>
-                <p>{value.title}</p>
-              </a>
-            );
+          {movieSearch.map((value) => {
+            <Link key={value.id} to={`/movies/${value.id}`}>
+              <p>{value.title}</p>
+            </Link>;
           })}
         </div>
       )}

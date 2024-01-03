@@ -43847,6 +43847,7 @@ parcelHelpers.export(exports, "SearchBar", ()=>SearchBar);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
 var _movieView = require("../movie-view/movie-view");
 var _s = $RefreshSig$();
 const SearchBar = ({ movies })=>{
@@ -43870,49 +43871,49 @@ const SearchBar = ({ movies })=>{
                         onChange: handleFilter
                     }, void 0, false, {
                         fileName: "components/profile-view/search-bar.jsx",
-                        lineNumber: 18,
+                        lineNumber: 19,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "searchIcon"
                     }, void 0, false, {
                         fileName: "components/profile-view/search-bar.jsx",
-                        lineNumber: 19,
+                        lineNumber: 20,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "components/profile-view/search-bar.jsx",
-                lineNumber: 17,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined),
             movieSearch.length !== 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "dataResult",
-                children: movieSearch.map((value, key)=>{
-                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        href: `/movies/${value.id}`,
+                children: movieSearch.map((value)=>{
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: `/movies/${value.id}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: value.title
                         }, void 0, false, {
                             fileName: "components/profile-view/search-bar.jsx",
                             lineNumber: 26,
-                            columnNumber: 17
+                            columnNumber: 15
                         }, undefined)
-                    }, key, false, {
+                    }, value.id, false, {
                         fileName: "components/profile-view/search-bar.jsx",
                         lineNumber: 25,
-                        columnNumber: 15
+                        columnNumber: 13
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "components/profile-view/search-bar.jsx",
-                lineNumber: 22,
+                lineNumber: 23,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/search-bar.jsx",
-        lineNumber: 16,
+        lineNumber: 17,
         columnNumber: 5
     }, undefined);
 };
@@ -43926,6 +43927,6 @@ $RefreshReg$(_c, "SearchBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../movie-view/movie-view":"lNY7v"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["4s3Ar","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../movie-view/movie-view":"lNY7v","react-router-dom":"fdOAw"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["4s3Ar","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
