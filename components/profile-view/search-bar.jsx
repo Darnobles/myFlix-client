@@ -21,11 +21,11 @@ export const SearchBar = ({ movies }) => {
       </div>
       {movieSearch.length !== 0 && (
         <div className="dataResult">
-          {movieSearch.map((value) => {
+          {movieSearch.map((value) => (
             <Link key={value.id} to={`/movies/${value.id}`}>
               <p>{value.title}</p>
             </Link>;
-          })}
+          ))}
         </div>
       )}
     </div>
