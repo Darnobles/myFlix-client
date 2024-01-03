@@ -43659,7 +43659,7 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                         className: "mb-4",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                             movie: movie,
-                            onFavorite: ()=>removeFav(movie.id),
+                            onFavorite: removeFav,
                             token: token,
                             user: user
                         }, void 0, false, {

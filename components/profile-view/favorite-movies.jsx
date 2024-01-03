@@ -34,7 +34,7 @@ export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
           <Col className="mb-4" key={movie.id}>
             <MovieCard
               movie={movie}
-              onFavorite={() => removeFav(movie.id)}
+              onFavorite={removeFav}
               token={token}
               user={user}
             />
