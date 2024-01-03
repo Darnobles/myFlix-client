@@ -43634,7 +43634,7 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _s = $RefreshSig$();
 const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
     _s();
-    const history = useHistory();
+    const history = (0, _reactRouterDom.useHistory)();
     const removeFav = (movieId)=>{
         if (!token) return;
         fetch(`https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
@@ -43653,7 +43653,7 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                 children: "Favorite Movies"
             }, void 0, false, {
                 fileName: "components/profile-view/favorite-movies.jsx",
-                lineNumber: 30,
+                lineNumber: 31,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -43667,12 +43667,12 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                             user: user
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
-                            lineNumber: 35,
+                            lineNumber: 36,
                             columnNumber: 15
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "components/profile-view/favorite-movies.jsx",
-                        lineNumber: 34,
+                        lineNumber: 35,
                         columnNumber: 13
                     }, undefined);
                 })
@@ -43680,11 +43680,15 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
         ]
     }, void 0, true, {
         fileName: "components/profile-view/favorite-movies.jsx",
-        lineNumber: 29,
+        lineNumber: 30,
         columnNumber: 5
     }, undefined);
 };
-_s(FavoriteMovies, "9cZfZ04734qoCGIctmKX7+sX6eU=", true);
+_s(FavoriteMovies, "9cZfZ04734qoCGIctmKX7+sX6eU=", false, function() {
+    return [
+        (0, _reactRouterDom.useHistory)
+    ];
+});
 _c = FavoriteMovies;
 var _c;
 $RefreshReg$(_c, "FavoriteMovies");

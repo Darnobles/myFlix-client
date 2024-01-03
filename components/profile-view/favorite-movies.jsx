@@ -4,6 +4,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useEffect } from "react";
 import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
 export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
   const history = useHistory();
