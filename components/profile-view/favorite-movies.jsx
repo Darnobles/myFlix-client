@@ -6,6 +6,8 @@ import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
+  const history = useHistory();
+
   const removeFav = (movieId) => {
     if (!token) return;
 
@@ -19,7 +21,7 @@ export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
       .then((response) => response.json())
       .then((data) => {
         alert("Movie removed successful");
-        window.location.reload();
+        history.go(0);
       });
   };
 
@@ -29,7 +31,7 @@ export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
       <>
         {favoriteMovieList.map((movie) => {
           return (
-            <Col className="mb-4" key={movie.id} md={3}>
+            <Col className="mb-4" key={movie.id}>
               <MovieCard
                 movie={movie}
                 onFavorite={removeFav}

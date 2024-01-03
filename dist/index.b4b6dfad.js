@@ -43631,7 +43631,10 @@ var _movieCard = require("../movie-card/movie-card");
 var _reactBootstrap = require("react-bootstrap");
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _s = $RefreshSig$();
 const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
+    _s();
+    const history = useHistory();
     const removeFav = (movieId)=>{
         if (!token) return;
         fetch(`https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
@@ -43641,7 +43644,7 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
             }
         }).then((response)=>response.json()).then((data)=>{
             alert("Movie removed successful");
-            window.location.reload();
+            history.go(0);
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43650,14 +43653,13 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                 children: "Favorite Movies"
             }, void 0, false, {
                 fileName: "components/profile-view/favorite-movies.jsx",
-                lineNumber: 28,
+                lineNumber: 30,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                 children: favoriteMovieList.map((movie)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         className: "mb-4",
-                        md: 3,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                             movie: movie,
                             onFavorite: removeFav,
@@ -43665,12 +43667,12 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                             user: user
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
-                            lineNumber: 33,
+                            lineNumber: 35,
                             columnNumber: 15
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "components/profile-view/favorite-movies.jsx",
-                        lineNumber: 32,
+                        lineNumber: 34,
                         columnNumber: 13
                     }, undefined);
                 })
@@ -43678,10 +43680,11 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
         ]
     }, void 0, true, {
         fileName: "components/profile-view/favorite-movies.jsx",
-        lineNumber: 27,
+        lineNumber: 29,
         columnNumber: 5
     }, undefined);
 };
+_s(FavoriteMovies, "9cZfZ04734qoCGIctmKX7+sX6eU=", true);
 _c = FavoriteMovies;
 var _c;
 $RefreshReg$(_c, "FavoriteMovies");
