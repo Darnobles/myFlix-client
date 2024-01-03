@@ -43633,6 +43633,7 @@ var _s = $RefreshSig$();
 const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
     _s();
     const history = (0, _reactRouterDom.useHistory)();
+    const [movies, setMovies] = (0, _react.useState)(favoriteMovieList);
     const removeFav = (movieId)=>{
         if (!token) return;
         fetch(`https://comic-flick-833dd2e0dd28.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
@@ -43641,8 +43642,8 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>response.json()).then((data)=>{
-            alert("Movie removed successful");
-            history.go(0);
+            setMovies((prevMovies)=>prevMovies.filter((movie)=>movie.id !== movieId));
+            alert("Movie removed successfully");
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43651,38 +43652,36 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                 children: "Favorite Movies"
             }, void 0, false, {
                 fileName: "components/profile-view/favorite-movies.jsx",
-                lineNumber: 28,
+                lineNumber: 32,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                children: favoriteMovieList.map((movie)=>{
-                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         className: "mb-4",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                             movie: movie,
-                            onFavorite: removeFav,
+                            onFavorite: ()=>removeFav(movie.id),
                             token: token,
                             user: user
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
-                            lineNumber: 33,
-                            columnNumber: 15
+                            lineNumber: 36,
+                            columnNumber: 13
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "components/profile-view/favorite-movies.jsx",
-                        lineNumber: 32,
-                        columnNumber: 13
-                    }, undefined);
-                })
+                        lineNumber: 35,
+                        columnNumber: 11
+                    }, undefined))
             }, void 0, false)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/favorite-movies.jsx",
-        lineNumber: 27,
+        lineNumber: 31,
         columnNumber: 5
     }, undefined);
 };
-_s(FavoriteMovies, "9cZfZ04734qoCGIctmKX7+sX6eU=", false, function() {
+_s(FavoriteMovies, "LStE6hC/M9hoa6Wqa6QS4xNzRgA=", false, function() {
     return [
         (0, _reactRouterDom.useHistory)
     ];

@@ -1,10 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
   const history = useHistory();
+  const [movies, setMovies] = useState(favoriteMovieList);
 
   const removeFav = (movieId) => {
     if (!token) return;
@@ -18,8 +20,10 @@ export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        alert("Movie removed successful");
-        history.go(0);
+        setMovies((prevMovies) =>
+          prevMovies.filter((movie) => movie.id !== movieId)
+        );
+        alert("Movie removed successfully");
       });
   };
 
@@ -27,18 +31,16 @@ export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
     <div>
       <h1>Favorite Movies</h1>
       <>
-        {favoriteMovieList.map((movie) => {
-          return (
-            <Col className="mb-4" key={movie.id}>
-              <MovieCard
-                movie={movie}
-                onFavorite={removeFav}
-                token={token}
-                user={user}
-              />
-            </Col>
-          );
-        })}
+        {movies.map((movie) => (
+          <Col className="mb-4" key={movie.id}>
+            <MovieCard
+              movie={movie}
+              onFavorite={() => removeFav(movie.id)}
+              token={token}
+              user={user}
+            />
+          </Col>
+        ))}
       </>
     </div>
   );
