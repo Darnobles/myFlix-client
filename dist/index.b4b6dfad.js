@@ -43779,8 +43779,8 @@ const DeregisterUser = ({ username, user, token })=>{
             } else alert("Unable to deregister");
         });
     };
-    handleDeregister = ()=>setDeregister(true);
-    handleCloseDeregister = ()=>setDeregister(false);
+    const handleDeregister = ()=>setDeregister(true);
+    const handleCloseDeregister = ()=>setDeregister(false);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
         onSubmit: handleSubmit,
         children: [
@@ -43801,7 +43801,7 @@ const DeregisterUser = ({ username, user, token })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                 type: "text",
                 value: username,
-                onChange: (e)=>setUsername(e.target.value),
+                onChange: (e)=>username(e.target.value),
                 required: true,
                 minLength: "3"
             }, void 0, false, {

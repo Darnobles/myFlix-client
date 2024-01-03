@@ -29,8 +29,8 @@ export const DeregisterUser = ({ username, user, token }) => {
     });
   };
 
-  handleDeregister = () => setDeregister(true);
-  handleCloseDeregister = () => setDeregister(false);
+  const handleDeregister = () => setDeregister(true);
+  const handleCloseDeregister = () => setDeregister(false);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -39,7 +39,7 @@ export const DeregisterUser = ({ username, user, token }) => {
       <Form.Control
         type="text"
         value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={(e) => username(e.target.value)}
         required
         minLength="3"
       />
