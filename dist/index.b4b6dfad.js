@@ -43632,7 +43632,6 @@ var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
     _s();
-    const history = (0, _reactRouterDom.useHistory)();
     const [movies, setMovies] = (0, _react.useState)(favoriteMovieList);
     const removeFav = (movieId)=>{
         if (!token) return;
@@ -43652,7 +43651,7 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                 children: "Favorite Movies"
             }, void 0, false, {
                 fileName: "components/profile-view/favorite-movies.jsx",
-                lineNumber: 32,
+                lineNumber: 31,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -43665,27 +43664,23 @@ const FavoriteMovies = ({ favoriteMovieList, token, user })=>{
                             user: user
                         }, void 0, false, {
                             fileName: "components/profile-view/favorite-movies.jsx",
-                            lineNumber: 36,
+                            lineNumber: 35,
                             columnNumber: 13
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "components/profile-view/favorite-movies.jsx",
-                        lineNumber: 35,
+                        lineNumber: 34,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false)
         ]
     }, void 0, true, {
         fileName: "components/profile-view/favorite-movies.jsx",
-        lineNumber: 31,
+        lineNumber: 30,
         columnNumber: 5
     }, undefined);
 };
-_s(FavoriteMovies, "LStE6hC/M9hoa6Wqa6QS4xNzRgA=", false, function() {
-    return [
-        (0, _reactRouterDom.useHistory)
-    ];
-});
+_s(FavoriteMovies, "CoUGdUwzqUJyl1KXdNA5zS5g0aI=");
 _c = FavoriteMovies;
 var _c;
 $RefreshReg$(_c, "FavoriteMovies");

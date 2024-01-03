@@ -5,7 +5,6 @@ import { Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
-  const history = useHistory();
   const [movies, setMovies] = useState(favoriteMovieList);
 
   const removeFav = (movieId) => {
