@@ -8,7 +8,7 @@ import { DeregisterUser } from "./deregister-user";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export const ProfileView = ({ user, movies, token, data }) => {
+export const ProfileView = ({ user, movies, token, data, setUser }) => {
   const favoriteMovieList = movies.filter((m) =>
     user.FavoriteMovies.includes(m.id)
   );
@@ -24,6 +24,7 @@ export const ProfileView = ({ user, movies, token, data }) => {
             favoriteMovieList={favoriteMovieList}
             token={token}
             user={user}
+            setUser={setUser}
           />
         </Col>
       </Row>

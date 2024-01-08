@@ -4,7 +4,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
-export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
+export const FavoriteMovies = ({ favoriteMovieList, token, user, setUser }) => {
   const [movies, setMovies] = useState(favoriteMovieList);
 
   const removeFav = (movieId) => {
@@ -23,6 +23,7 @@ export const FavoriteMovies = ({ favoriteMovieList, token, user }) => {
           prevMovies.filter((movie) => movie.id !== movieId)
         );
         alert("Movie removed successfully");
+        setUser(data);
       });
   };
 

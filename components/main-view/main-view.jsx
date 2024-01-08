@@ -55,6 +55,7 @@ export const MainView = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setUser(data);
       });
   };
 
@@ -127,7 +128,12 @@ export const MainView = () => {
                   <Navigate to="/login" replace />
                 ) : (
                   // <Col>
-                  <ProfileView user={user} movies={movies} token={token} />
+                  <ProfileView
+                    user={user}
+                    movies={movies}
+                    token={token}
+                    setUser={setUser}
+                  />
                   // </Col>
                 )}
               </>
