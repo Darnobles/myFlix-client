@@ -19,7 +19,7 @@ export const ProfileView = ({ user, movies, token, data, setUser }) => {
       <DeregisterUser username={user.Username} user={user} token={token} />
       <UpdateUser user={user} token={token} data={data} />
       <Row>
-        <Col className="mb-4">
+        <Col className="mb-4" md={3}>
           <FavoriteMovies
             favoriteMovieList={favoriteMovieList}
             token={token}

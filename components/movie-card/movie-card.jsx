@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./movie-card.scss";
 
 export const MovieCard = ({ movie, onFavorite }) => {
   return (
-    <Card className="h-100">
-      <Card.Img variant="top" src={movie.imagePath} />
+    <Card className="movieCard">
+      <Card.Img variant="top" src={movie.imagePath} className="movieImage" />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>{movie.description}</Card.Text>

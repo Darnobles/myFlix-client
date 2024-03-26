@@ -1,0 +1,14 @@
+.movieCard{
+    background-color: white;
+    min-height: 100%;
+    flex: 0 0 calc(25% - 20px);
+    box-shadow: 0 0 18px #766753;
+    padding: 10px;
+
+}
+
+.movieImage {
+   max-width: fit-content; height:300px;
+   flex: 0 0 calc(25% - 20px);
+   align-self: center;
+}

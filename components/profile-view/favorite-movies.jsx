@@ -29,10 +29,21 @@ export const FavoriteMovies = ({ favoriteMovieList, token, user, setUser }) => {
 
   return (
     <div>
-      <h1>Favorite Movies</h1>
+      <h1 style={{ fontSize: 30 }}>Favorite Movies</h1>
       <>
         {movies.map((movie) => (
-          <Col className="mb-4" key={movie.id}>
+          <Col
+            className="mb-4"
+            key={movie.id}
+            style={{
+              flex: "0 0 calc(25% - 20px)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
             <MovieCard
               movie={movie}
               onFavorite={removeFav}

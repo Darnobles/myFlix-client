@@ -41,7 +41,7 @@ export const UpdateUser = ({ user, token }) => {
 
   return (
     <Form className="profile-form" onSubmit={onUpdate}>
-      <h1>Update Info</h1>
+      <h1 style={{ fontSize: 30 }}>Update Info</h1>
       <Form.Label>Username:</Form.Label>
       <Form.Control
         type="text"
